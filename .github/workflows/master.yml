@@ -16,14 +16,14 @@ on:
 
 jobs:
   app-test:
-    uses: gqcorneby/workflows/.github/workflows/shared/app-test.yml@main
+    uses: gqcorneby/workflows/.github/workflows/app-test.yml@main
 
   codeql-analysis:
-    uses: gqcorneby/workflows/.github/workflows/shared/codeql.yml@main
+    uses: gqcorneby/workflows/.github/workflows/codeql.yml@main
     with:
       languages: ${{ inputs.languages }}
       build_mode: ${{ inputs.build_mode }}
 
   pr-build-diff:
-    uses: gqcorneby/workflows/.github/workflows/shared/bundlemon-build-size.yml@main
+    uses: gqcorneby/workflows/.github/workflows/bundlemon-build-size.yml@main
 
