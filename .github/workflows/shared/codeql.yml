@@ -25,13 +25,13 @@ on:
       languages:
         description: "Languages to analyze"
         required: false
-        default: '["javascript-typescript"]'  # Ensure default is a JSON array
+        default: "javascript-typescript"  # Space-separated string instead of JSON
         type: string
-        build_mode:
-          description: "Build mode for CodeQL analysis"
-          required: false
-          default: '["none"]'  # Ensure default is a JSON array
-          type: string
+      build_mode:
+        description: "Build mode for CodeQL analysis"
+        required: false
+        default: "none"
+        type: string
 
 jobs:
   analyze:
@@ -52,8 +52,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ${{ fromJson(inputs.languages) }}  # Convert string to array
-        build-mode: ${{ fromJson(inputs.build_mode) }}
+        language: ${{ inputs.languages }}  # Directly use the string input
+        build_mode: ${{ inputs.build_mode }}
 
     steps:
       - name: Checkout repository
