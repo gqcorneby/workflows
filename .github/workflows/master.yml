@@ -6,7 +6,7 @@ on:
       languages:
         description: "Languages to analyze"
         required: false
-        default: "javascript-typescript"
+        default: "javascript-typescript" # Space-separated string instead of JSON
         type: string
       build_mode:
         description: "Build mode for CodeQL analysis"
